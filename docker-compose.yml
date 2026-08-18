@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  ms-go:
+    build:
+      context: ./ms-go
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - STATISTICS_API_URL=http://ms-node:3001/api
+
+  ms-node:
+    build:
+      context: ./ms-node
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
